@@ -1,4 +1,4 @@
-package com.huazai.freemarker.pojo;
+package com.huazai.freemarker.dto;
 
 /**
  * 
@@ -13,7 +13,8 @@ package com.huazai.freemarker.pojo;
  *
  * @version V1.0.0
  */
-public class Employee {
+public class EmployeeDTO
+{
 
 	/**
 	 * 员工ID
@@ -25,32 +26,39 @@ public class Employee {
 	 */
 	private String empName;
 
-	public String getEmpId() {
+	public String getEmpId()
+	{
 		return empId;
 	}
 
-	public void setEmpId(String empId) {
+	public void setEmpId(String empId)
+	{
 		this.empId = empId;
 	}
 
-	public String getEmpName() {
+	public String getEmpName()
+	{
 		return empName;
 	}
 
-	public void setEmpName(String empName) {
+	public void setEmpName(String empName)
+	{
 		this.empName = empName;
 	}
 
 	@Override
-	public String toString() {
+	public String toString()
+	{
 		return "Employee [empId=" + empId + ", empName=" + empName + "]";
 	}
 
-	public Employee() {
+	public EmployeeDTO()
+	{
 		super();
 	}
 
-	public Employee(String empId, String empName) {
+	public EmployeeDTO(String empId, String empName)
+	{
 		super();
 		this.empId = empId;
 		this.empName = empName;
