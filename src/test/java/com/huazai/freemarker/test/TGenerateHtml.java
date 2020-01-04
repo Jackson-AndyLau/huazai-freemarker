@@ -31,7 +31,7 @@ public class TGenerateHtml
 	{
 		// 1、创建个Configuration对象
 		Configuration configuration = new Configuration(Configuration.getVersion());
-		String diretoryp_ath = "模板文件所在的路径的目录";
+		String diretoryp_ath = "H:\\";
 		// 2、设置模板文件所在的路径的目录
 		configuration.setDirectoryForTemplateLoading(new File(diretoryp_ath));
 		// 3、设置模板文件的字符集
@@ -40,8 +40,8 @@ public class TGenerateHtml
 		Template template = configuration.getTemplate("template.htm");// 可以是<相对路径>，也可以是<绝对路径>
 		// 5、创建模板文件需要展示数据的数据集对象，可以使用POJO，也可以使用map 一般是使用map
 		Map<String, String> model = new HashMap<>();
-		model.put("hello", "hello");
-		String pre_file_path = "生成的静态文件的文件路径";
+		model.put("hello", "hello world!");
+		String pre_file_path = "H:\\";
 		// 6、创建一个FileWriter对象 指定生成的静态文件的文件路径及文件名
 		// 拼接一个前缀和后缀
 		FileWriter writer = new FileWriter(new File(pre_file_path + "/result.html"));
