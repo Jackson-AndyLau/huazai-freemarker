@@ -25,7 +25,7 @@ import freemarker.template.Template;
  *
  * @version V1.0.0
  */
-public class TGenerateHtml
+public class TKeyHtml
 {
 
 	@Test
