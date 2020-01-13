@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.junit.Test;
 
+import com.huazai.freemarker.dto.EmployeeDTO;
+
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
@@ -15,17 +17,15 @@ import freemarker.template.Template;
  * @author HuaZai
  * @contact who.seek.me@java98k.vip
  *          <ul>
- * @description 通过模板技术实现静态网页的输出<访问Map中的key属性>
- *              <li>--访问Map中的key属性<br>
- *              <li>${hello}
+ * @description 通过模板技术实现静态网页的输出<访问POJO中的属性>
  *              </ul>
- * @className TGenerateHtml
+ * @className TPojoGenHtml
  * @package com.huazai.freemarker.test
  * @createdTime 2017年06月17日
  *
  * @version V1.0.0
  */
-public class TGenerateHtml
+public class TPojoGenHtml
 {
 
 	@Test
@@ -39,10 +39,10 @@ public class TGenerateHtml
 		// 3、设置模板文件的字符集
 		configuration.setDefaultEncoding("UTF-8");
 		// 4、首先创建模板文件，再加载模板文件 模板文件的后缀官方统一的标准是.ftl 其实任何类型都行。
-		Template template = configuration.getTemplate("template.ftl");// 可以是<相对路径>，也可以是<绝对路径>
+		Template template = configuration.getTemplate("template.htm");// 可以是<相对路径>，也可以是<绝对路径>
 		// 5、创建模板文件需要展示数据的数据集对象，可以使用POJO，也可以使用map 一般是使用map
-		Map<String, String> model = new HashMap<>();
-		model.put("hello", "hello world!");
+		Map<String, Object> model = new HashMap<>();
+		model.put("employee", new EmployeeDTO("001", "huazai"));
 		String pre_file_path = "D:\\fremarker";
 		// 6、创建一个FileWriter对象 指定生成的静态文件的文件路径及文件名
 		// 拼接一个前缀和后缀
