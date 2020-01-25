@@ -2,7 +2,9 @@ package com.huazai.freemarker.test;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
@@ -17,15 +19,20 @@ import freemarker.template.Template;
  * @author HuaZai
  * @contact who.seek.me@java98k.vip
  *          <ul>
- * @description 通过模板技术实现静态网页的输出<访问POJO中的属性>
+ * @description 通过模板技术实现静态网页的输出<访问集合中的数据>
+ * 				<li>-- 访问集合中的数据<br>
+ * 				<li><#list list as item>
+ * 				<li>	${item.empId}
+ * 				<li>	${item.empName}<br>
+ * 				<li></#list>
  *              </ul>
- * @className TPojoGenHtml
+ * @className TArrayHtml
  * @package com.huazai.freemarker.test
  * @createdTime 2017年06月17日
  *
  * @version V1.0.0
  */
-public class TPojoGenHtml
+public class TArrayHtml
 {
 
 	@Test
@@ -42,7 +49,11 @@ public class TPojoGenHtml
 		Template template = configuration.getTemplate("template.htm");// 可以是<相对路径>，也可以是<绝对路径>
 		// 5、创建模板文件需要展示数据的数据集对象，可以使用POJO，也可以使用map 一般是使用map
 		Map<String, Object> model = new HashMap<>();
-		model.put("employee", new EmployeeDTO("001", "huazai"));
+		List<EmployeeDTO> employeeDTOs = new ArrayList<EmployeeDTO>();
+		employeeDTOs.add(new EmployeeDTO("1001", "冰心"));
+		employeeDTOs.add(new EmployeeDTO("1002", "季羡林"));
+		employeeDTOs.add(new EmployeeDTO("1003", "汪曾祺"));
+		model.put("list", employeeDTOs);
 		String pre_file_path = "D:\\fremarker";
 		// 6、创建一个FileWriter对象 指定生成的静态文件的文件路径及文件名
 		// 拼接一个前缀和后缀
