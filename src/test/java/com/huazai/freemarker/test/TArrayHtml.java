@@ -26,6 +26,18 @@ import freemarker.template.Template;
  * 				<li>	${item.empId}
  * 				<li>	${item.empName}<br>
  * 				<li></#list>
+ * 				<li>
+ * 				<li>-- 逻辑判断语句<br>
+ * 				<li><#list list as item>
+ * 				<li>	<#if item_index%2==0>
+ * 				<li>		这是偶数行》
+ * 				<li>	<#else>
+ * 				<li>		这是奇数行》
+ * 				<li>	</#if>
+ * 				<li>	${item_index}
+ * 				<li>	${item.empId}
+ * 				<li>	${item.empName}<br>
+ * 				<li></#list>
  *              </ul>
  * @className TArrayHtml
  * @package com.huazai.freemarker.test
