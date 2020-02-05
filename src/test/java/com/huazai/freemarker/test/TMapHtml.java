@@ -17,8 +17,8 @@ import freemarker.template.Template;
  * @author HuaZai
  * @contact who.seek.me@java98k.vip
  *          <ul>
- * @description 通过模板技术实现静态网页的输出<访问map中的数据>
- * 				<li>-- 访问map中的数据<br>
+ * @description 通过模板技术实现静态网页的输出<访问map集合中的数据>
+ * 				<li>-- 访问map集合中的数据<br>
  * 				<li><#list map?keys as key>
  * 				<li>	${map[key].empId}
  * 				<li>	${map[key].empName}<br>
@@ -44,7 +44,7 @@ public class TMapHtml
 		// 3、设置模板文件的字符集
 		configuration.setDefaultEncoding("UTF-8");
 		// 4、首先创建模板文件，再加载模板文件 模板文件的后缀官方统一的标准是.ftl 其实任何类型都行。
-		Template template = configuration.getTemplate("template.htm");// 可以是<相对路径>，也可以是<绝对路径>
+		Template template = configuration.getTemplate("template.ftl");// 可以是<相对路径>，也可以是<绝对路径>
 		// 5、创建模板文件需要展示数据的数据集对象，可以使用POJO，也可以使用map 一般是使用map
 		Map<String, Object> model = new HashMap<>();
 		Map<String, Object> map = new HashMap<>();

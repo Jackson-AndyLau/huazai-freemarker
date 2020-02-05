@@ -18,9 +18,9 @@ import freemarker.template.Template;
  * @description 通过模板技术实现静态网页的输出<非空判断 + 框架标签>
  * 				<li>-- 非空判断 + 框架标签<br>
  * 				<li>空值处理：${list!"这个是空值"}<br>
- * 				<li>引用页面01：<#include "page_01.htm"><br>
- * 				<li>引用页面02：<#include "page_02.htm"><br>
- * 				<li>引用页面03：<#include "page_03.htm"><br>
+ * 				<li>引用页面01：<#include "page_01.ftl"><br>
+ * 				<li>引用页面02：<#include "page_02.ftl"><br>
+ * 				<li>引用页面03：<#include "page_03.ftl"><br>
  *              </ul>
  * @className TRestHtml
  * @package com.huazai.freemarker.test
@@ -42,7 +42,7 @@ public class TRestHtml
 		// 3、设置模板文件的字符集
 		configuration.setDefaultEncoding("UTF-8");
 		// 4、首先创建模板文件，再加载模板文件 模板文件的后缀官方统一的标准是.ftl 其实任何类型都行。
-		Template template = configuration.getTemplate("template.htm");// 可以是<相对路径>，也可以是<绝对路径>
+		Template template = configuration.getTemplate("template.ftl");// 可以是<相对路径>，也可以是<绝对路径>
 		// 5、创建模板文件需要展示数据的数据集对象，可以使用POJO，也可以使用map 一般是使用map
 		Map<String, Object> model = new HashMap<>();
 		model.put("list", null);

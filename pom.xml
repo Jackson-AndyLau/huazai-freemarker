@@ -9,12 +9,6 @@
 	</parent>
 	<artifactId>huazai-freemarker</artifactId>
 	<dependencies>
-		<!-- Freemarker 框架相关 -->
-		<dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
-		</dependency>
-
 		<!-- Spring 相关 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -43,6 +37,11 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<!-- Freemarker 框架相关 -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
 		</dependency>
 	</dependencies>
 </project>
