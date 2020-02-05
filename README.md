@@ -1,16 +1,14 @@
-    Java模板引擎Freemarker2.x进阶详情
+Java模板引擎Freemarker2.x进阶详情
 
 一、关于静态化页面
-
 什么是网页静态化：通过一些技术手段 Freemarker 或者 Thymeleaf 将动态页面JSP、asp.net、php 等转换成静态的页面，通过浏览器直接访问现成的静态页面。
 
 
 二、网页静态化特点
-
-    1、通过浏览器直接访问静态的页面,不需要经过程序处理，它的访问速度高；
-    2、稳定性好；
-    3、更有效的防止安全漏洞问题，比如不易遭受黑客攻击；
-    4、静态的页面更容易被搜索引擎收录；
+1、通过浏览器直接访问静态的页面,不需要经过程序处理，它的访问速度高；
+2、稳定性好；
+3、更有效的防止安全漏洞问题，比如不易遭受黑客攻击；
+4、静态的页面更容易被搜索引擎收录；
 
 
 三、关于Freemarker
@@ -30,7 +28,7 @@ FreeMarker 的设计实际上是被用来生成 HTML 网页，尤其是通过基
 
 四、Freemarker 的使用步骤
 
-    1）、创建一个Configuration对象，直接new一个对象。构造方法的参数就是freemarker对于的版本号;
+1）、创建一个Configuration对象，直接new一个对象。构造方法的参数就是freemarker对于的版本号;
     2）、设置模板文件所在的路径;
     3）、设置模板文件使用的字符集。一般就是UTF-8；
     4）、加载一个模板，创建一个模板对象；
@@ -42,6 +40,7 @@ FreeMarker 的设计实际上是被用来生成 HTML 网页，尤其是通过基
 
 代码示例如下：
 
+```java
 package com.huazai.freemarker.test;
 
 import java.io.File;
@@ -95,8 +94,7 @@ public class TGenerateHtml
 		writer.close();
 	}
 }
-
-[点击并拖拽以移动]
+```
 
 
 五、Freemarker 的使用
@@ -106,17 +104,18 @@ public class TGenerateHtml
 [点击并拖拽以移动]
 
 2）、引入 Maven 依赖，在项目的pom.xml配置文件中添加 freemarker 依赖包
-
+```xml
 			<dependency>
 				<groupId>org.freemarker</groupId>
 				<artifactId>freemarker</artifactId>
 				<version>2.3.28</version>
 			</dependency>
-
+```
 [点击并拖拽以移动]
 
 3）、新建一个数据载体 EmployeeDTO
 
+```java
 package com.huazai.freemarker.dto;
 
 /**
@@ -184,7 +183,7 @@ public class EmployeeDTO
 	}
 
 }
-
+```
 [点击并拖拽以移动]
 
 
@@ -192,6 +191,7 @@ public class EmployeeDTO
 
 1）、通过模板技术实现静态网页的输出<访问Map中的key属性>
 
+```java
 package com.huazai.freemarker.test;
 
 import java.io.File;
@@ -247,14 +247,14 @@ public class TKeyHtml
 		writer.close();
 	}
 }
-
+```
 [点击并拖拽以移动]
 
 模板内容：
-
+```html
 --访问Map中的key属性<br>
 ${hello}
-
+```
 
 效果图如下：
 
@@ -263,6 +263,7 @@ ${hello}
 
 2）、通过模板技术实现静态网页的输出<访问POJO中的属性>
 
+```java
 package com.huazai.freemarker.test;
 
 import java.io.File;
@@ -321,21 +322,21 @@ public class TPojoHtml
 		writer.close();
 	}
 }
-
+```
 [点击并拖拽以移动]
 
 模板内容：
-
+```html
 -- 访问POJO中的属性<br>
 ${employee.empId}
 ${employee.empName}
-
+```
 
 效果图如下：
 
 
 3）、通过模板技术实现静态网页的输出<访问集合中的数据>
-
+```java
 package com.huazai.freemarker.test;
 
 import java.io.File;
@@ -415,22 +416,24 @@ public class TArrayHtml
 		writer.close();
 	}
 }
+```
 
 模板内容：
-
+```html
 -- 访问集合中的数据<br>
 <#list list as item>
 	${item_index}
 	${item.empId}
 	${item.empName}<br>
 </#list>
-
+```
 
 效果图如下：
 
 
 4）、通过模板技术实现静态网页的输出<日期类型格式化>
 
+```java
 package com.huazai.freemarker.test;
 
 import java.io.File;
@@ -490,24 +493,24 @@ public class TDateHtml
 		writer.close();
 	}
 }
-	
+```	
 
 [点击并拖拽以移动]
 
 模板内容：
-
+```html
 -- 日期类型格式化<br>
 当前日期：${date?date}<br>
 当前时间：${date?time}<br>
 当前日期和时间：${date?datetime}<br>
 自定义日期格式：${date?string("yyyy年MM月dd日 HH时mm分ss秒")}<br>
-
+```
 
 效果图如下：
 
 
 5）、通过模板技术实现静态网页的输出<非空判断 + 框架标签>
-
+```java
 package com.huazai.freemarker.test;
 
 import java.io.File;
@@ -569,17 +572,17 @@ public class TRestHtml
 		writer.close();
 	}
 }
-
+```
 [点击并拖拽以移动]
 
 模板内容：
-
+```html
 -- 非空判断 + 框架标签<br>
 空值处理：${list!"这个是空值"}<br>
 引用页面01：<#include "page_01.ftl"><br>
 引用页面02：<#include "page_02.ftl"><br>
 引用页面03：<#include "page_03.ftl"><br>
-
+```
 
 效果图如下：
 
